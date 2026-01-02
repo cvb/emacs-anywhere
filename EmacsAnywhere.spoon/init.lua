@@ -129,6 +129,9 @@ function obj:start()
     local selectedText = focusedElement:attributeValue("AXSelectedText")
     if selectedText and selectedText ~= "" then
       text = selectedText
+    else
+      hs.eventtap.keyStroke({"cmd"}, "c")
+      text = hs.pasteboard.readString()
     end
   end
 
